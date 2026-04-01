@@ -3,7 +3,7 @@ import { useApp } from '../../context/AppContext';
 import { fmt } from '../../utils/fmt';
 import { CATEGORIES } from '../../Data/Products';
 
-const EMPTY_FORM = { name: '', desc: '', price: '', image: '', category: 'garullas', badge: '' };
+const EMPTY_FORM = { name: '', desc: '', price: '', image: '', category: 'productos', badge: '' };
 
 function ProductForm({ initial = EMPTY_FORM, onSave, onCancel }) {
   const [form, setForm] = useState(initial);
@@ -120,24 +120,24 @@ function ProductForm({ initial = EMPTY_FORM, onSave, onCancel }) {
 
 function ProductRow({ product, onEdit, onDelete, onToggle }) {
   return (
-    <div className={`bg-[#1A1A1A] border rounded-xl px-3 py-2.5 flex items-center gap-3 transition-all ${!product.available ? 'opacity-40' : ''} border-[#2A2A2A]`}>
+    <div className={`bg-amber-100 border-2 rounded-xl px-3 py-2.5 flex items-center gap-3 transition-all ${!product.available ? 'opacity-40' : ''} border-[#2A2A2A]`}>
          <img
           src={product.image || '/images/default.png'}
           alt={product.name}
-          className="w-9 h-9 rounded-lg object-cover flex-shrink-0"
+          className="w-9 h-9 bg-[#D4A373] rounded-lg border object-cover flex-shrink-0"
           onError={(e) => (e.target.src = '/images/default.png')}
         />
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-white text-sm truncate">{product.name}</span>
+          <span className="font-bold text-[#2A2A2A] text-sm truncate">{product.name}</span>
           {product.badge && (
             <span className={`text-[9px] font-black px-1.5 py-0.5 rounded uppercase flex-shrink-0
-              ${product.badge === 'popular' ? 'bg-[#D81B1B] text-white' : 'bg-[#F5C800] text-[#0D0D0D]'}`}>
+              ${product.badge === 'popular' ? 'bg-amber-900 text-amber-100' : 'bg-green-700/50 text-[#0D0D0D]'}`}>
               {product.badge}
             </span>
           )}
         </div>
-        <p className="text-[#F5C800] text-xs font-black">{fmt(product.price)}</p>
+        <p className="text-[#2A2A2A] text-xs font-black">{fmt(product.price)}</p>
       </div>
       <div className="flex items-center gap-1.5 flex-shrink-0">
         <button onClick={() => onToggle(product.id)}
@@ -145,8 +145,8 @@ function ProductRow({ product, onEdit, onDelete, onToggle }) {
             ${product.available ? 'bg-green-500/20 text-green-400' : 'bg-zinc-500/20 text-zinc-500'}`}>
           {product.available ? '● Activo' : '○ Oculto'}
         </button>
-        <button onClick={() => onEdit(product)} className="w-7 h-7 bg-[#2A2A2A] rounded-lg text-xs border-none cursor-pointer flex items-center justify-center">✏️</button>
-        <button onClick={() => onDelete(product.id)} className="w-7 h-7 bg-[#D81B1B]/10 rounded-lg text-[#D81B1B] text-xs border-none cursor-pointer flex items-center justify-center">🗑️</button>
+        <button onClick={() => onEdit(product)} className="w-7 h-7 bg-[#F5C800]/70 border-2 border-[#2A2A2A] rounded-lg text-xs border-none cursor-pointer flex items-center justify-center">✏️</button>
+        <button onClick={() => onDelete(product.id)} className="w-7 h-7 bg-amber-900 rounded-lg text-[#D81B1B] text-xs border-none cursor-pointer flex items-center justify-center">🗑️</button>
       </div>
     </div>
   );
@@ -164,15 +164,15 @@ export default function ProductsPanel() {
     .filter(p => p.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <div className="p-4 md:p-6 pb-24 md:pb-6">
+    <div className="p-4 md:p-6 pb-24 md:pb-6 bg-[#85965F] min-h-screen">
       <div className="flex items-center justify-between mb-5">
         <div>
-          <h1 className="font-display text-white text-4xl tracking-wide">Productos</h1>
-          <div className="w-10 h-1 bg-[#F5C800] rounded mt-1" />
+          <h1 className="font-display text-amber-100 text-4xl tracking-wide">Productos</h1>
+          <div className="w-full h-1 bg-amber-100 rounded mt-1" />
         </div>
         {mode === 'list' && (
           <button onClick={() => setMode('add')}
-            className="bg-[#F5C800] text-[#0D0D0D] border-none rounded-xl px-4 py-2.5 font-black text-sm cursor-pointer active:scale-95 transition-transform">
+            className="bg-amber-100 text-amber-900 border-2  rounded-xl px-4 py-2.5 font-black text-sm cursor-pointer active:scale-95 transition-transform">
             + Nuevo
           </button>
         )}
@@ -196,7 +196,7 @@ export default function ProductsPanel() {
         </div>
       )}
 
-      <input className="w-full bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl px-4 py-2.5 text-white text-sm outline-none focus:border-[#F5C800] mb-3 transition-colors"
+      <input className="w-full bg-amber-100 border border-[#2A2A2A] rounded-xl px-4 py-2.5 text-[#2A2A2A] text-sm outline-none focus:border-[#6F7F4F] mb-3 transition-colors"
         placeholder="🔍 Buscar producto..." value={search} onChange={e => setSearch(e.target.value)} />
 
       <div className="flex gap-2 overflow-x-auto mb-4 pb-1">

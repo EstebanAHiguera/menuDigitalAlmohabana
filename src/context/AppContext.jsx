@@ -88,6 +88,16 @@ export function AppProvider({ children }) {
 
   const clearCart = useCallback(() => setCart({}), [setCart]);
 
+  // Redefine deleteProduct to include cart cleaning after setCart is available
+  const deleteProductWithCart = useCallback((id) => {
+    setProducts(prev => prev.filter(p => p.id !== id));
+    setCart(prev => {
+      const next = { ...prev };
+      delete next[id];
+      return next;
+    });
+  }, [setProducts, setCart]);
+
   const cartLines = Object.entries(cart).map(([id, qty]) => {
     const product = products.find(p => p.id === id);
     if (!product) return null;
@@ -95,7 +105,7 @@ export function AppProvider({ children }) {
   }).filter(Boolean);
 
   const cartTotal = cartLines.reduce((sum, l) => sum + l.subtotal, 0);
-  const cartCount = Object.values(cart).reduce((a, b) => a + b, 0);
+  const cartCount = cartLines.reduce((sum, line) => sum + line.qty, 0);
 
   const stats = {
     totalOrders: history.length,
@@ -106,7 +116,7 @@ export function AppProvider({ children }) {
 
   return (
     <AppContext.Provider value={{
-      products, addProduct, updateProduct, deleteProduct, toggleAvailable,
+      products, addProduct, updateProduct, deleteProduct: deleteProductWithCart, toggleAvailable,
       orders, addOrder, updateOrderStatus, deleteOrder,
       history, clearHistory,
       cart, cartLines, cartTotal, cartCount, addToCart, removeFromCart, clearCart,

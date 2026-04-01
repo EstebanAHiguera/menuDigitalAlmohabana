@@ -8,19 +8,19 @@ export default function ProductCard({ product }) {
   if (!product.available) return null;
   
   return (
-    <div className={`bg-[#1A1A1A] rounded-2xl overflow-hidden flex flex-col transition-all
-      ${qty > 0 ? 'border-2 border-[#F5C800]' : 'border border-[#2A2A2A]'}`}>      
-     <div className="bg-[#2A2A2A] aspect-square relative overflow-hidden">
+    <div className={`bg-[#85965F] rounded-2xl overflow-hidden p-1.5 flex flex-col transition-all mb-4
+      ${qty > 0 ? 'border-2 border-[#6F7F4F] p-1.5' : 'border border-[#2A2A2A]'}`}>      
+     <div className="bg-amber-100 rounded-2xl aspect-square relative overflow-hidden">
         
         <img
           src={product.image || '/images/default.png'}
           alt={product.name}
-          className="w-full h-full object-cover absolute top-0 left-0"
+          className="w-full h-full  object-cover absolute top-0 left-0"
           onError={(e) => (e.target.src = '/images/default.png')}
         />
 
         {qty > 0 && (
-          <span className="absolute top-2 right-2 bg-[#F5C800] text-[#0D0D0D] text-xs font-black w-6 h-6 rounded-full flex items-center justify-center">
+          <span className="absolute top-2 right-2 bg-[#2A2A2A] text-white border border-[#4A4A4A] text-xs font-black w-6 h-6 rounded-full flex items-center justify-center">
             {qty}
           </span>
         )}
@@ -28,20 +28,20 @@ export default function ProductCard({ product }) {
       
       <div className="p-2.5 flex flex-col gap-1 flex-1 justify-between">
         {product.badge && (
-          <span className={`text-[10px] font-black px-2 py-0.5 rounded-md uppercase self-start
-            ${product.badge === 'popular' ? 'bg-[#D81B1B] text-white' : 'bg-[#F5C800] text-[#0D0D0D]'}`}>
+          <span className={`text-[12px] font-black px-2 py-0.5 rounded-md uppercase self-start
+            ${product.badge === 'popular' ? 'bg-amber-100 text-amber-900' : 'bg-amber-900 text-amber-100'}`}>
             {product.badge}
           </span>
         )}
         
-        <p className="font-bold text-[13px] text-white leading-tight">{product.name}</p>
-        <p className="text-[11px] text-white/40 leading-snug">{product.desc}</p> 
-        <span className="font-black text-[12px] text-[#F5C800] mt-1 block]">{fmt(product.price)}</span>
+        <p className="font-bold text-[15px] text-white leading-tight">{product.name}</p>
+        <p className="text-[13px] text-black leading-snug">{product.desc}</p> 
+        <span className="font-black text-[14px] text-[#1A1A1A] mt-1 block]">{fmt(product.price)}</span>
         
         <div className="flex items-center justify-end gap-1 mt-2">
           <button
             onClick={() => qty > 0 && removeFromCart(product.id)}
-            className="bg-[#F5C800] text-[#0D0D0D] border-none rounded-lg px-2 py-1 font-black text-xs cursor-pointer active:scale-95 transition-transform"
+            className="bg-[#2A2A2A] text-white border border-[#4A4A4A] rounded-lg px-2 py-1 font-white text-xs cursor-pointer active:scale-95 transition-transform"
           >
             -
           </button>
@@ -55,7 +55,7 @@ export default function ProductCard({ product }) {
           
           <button
             onClick={() => addToCart(product.id)}
-            className="w-6 h-6 rounded-full bg-[#D81B1B] border-none text-white text-sm flex items-center justify-center cursor-pointer active:scale-90 transition-transform"
+            className="w-6 h-6 rounded-full bg-[#2A2A2A] border border-[#4A4A4A] text-white text-sm flex items-center justify-center cursor-pointer active:scale-90 transition-transform"
           >
             +
           </button>

@@ -27,7 +27,7 @@ export default function CartSheet({ isOpen, onClose }) {
         <div className="w-9 h-1 bg-[#2A2A2A] rounded mx-auto mt-3" />
         
         <div className="flex items-center justify-between px-4 py-3 border-b border-[#2A2A2A]">
-          <h2 className="font-display text-[#F5C800] text-2xl tracking-widest">Mi Pedido</h2>
+          <h2 className="font-display text-amber-100 text-2xl tracking-widest">Mi Pedido</h2>
           {cartLines.length > 0 && (
             <button onClick={clearCart} className="text-white/30 text-xs bg-transparent border-none cursor-pointer font-semibold">
               Vaciar
@@ -59,7 +59,7 @@ export default function CartSheet({ isOpen, onClose }) {
                 
                 <div className="flex-1">
                   <p className="font-bold text-[13px] text-white">{item.name}</p>
-                  <p className="text-[13px] font-black text-[#F5C800] mt-0.5">{fmt(item.subtotal)}</p>
+                  <p className="text-[13px] font-black text-amber-100 mt-0.5">{fmt(item.subtotal)}</p>
                 </div>
                 
                 <div className="flex items-center gap-2">
@@ -72,7 +72,7 @@ export default function CartSheet({ isOpen, onClose }) {
                   <span className="text-sm font-black text-white min-w-[14px] text-center">{item.qty}</span>
                   <button 
                     onClick={() => addToCart(item.id)} 
-                    className="w-7 h-7 rounded-full bg-[#D81B1B] border-none text-white text-base flex items-center justify-center cursor-pointer"
+                    className="w-7 h-7 rounded-full bg-[#6f7f4f] border-none text-white text-base flex items-center justify-center cursor-pointer"
                   >
                     +
                   </button>
@@ -91,13 +91,13 @@ export default function CartSheet({ isOpen, onClose }) {
                 <span>{fmt(DELIVERY)}</span>
               </div>
               
-              <div className="flex justify-between pt-3 mt-1 border-t border-[#2A2A2A] text-base font-black text-white">
+              <div className="flex justify-between pt-3 mt-1 border-t border-[#6F7F4F] text-base font-black text-white">
                 <span>Total</span>
-                <span className="text-[#F5C800]">{fmt(cartTotal + DELIVERY)}</span>
+                <span className="text-amber-100">{fmt(cartTotal + DELIVERY)}</span>
               </div>
               
               <textarea
-                className="w-full mt-3 bg-[#2A2A2A] border border-[#3A3A3A] rounded-xl px-3 py-2.5 text-white text-sm outline-none focus:border-[#F5C800] resize-none"
+                className="w-full mt-3 bg-[#2A2A2A] border border-[#6F7F4F] rounded-xl px-3 py-2.5 text-white text-sm outline-none focus:border-[#F5C800] resize-none"
                 placeholder="Nota para el pedido (opcional)..."
                 rows={2}
                 value={note}
@@ -106,7 +106,7 @@ export default function CartSheet({ isOpen, onClose }) {
               
               <button
                 onClick={handleOrder}
-                className="w-full py-4 bg-[#F5C800] text-[#0D0D0D] rounded-2xl font-black text-[15px] flex items-center justify-center gap-2 border-none cursor-pointer mt-3 active:scale-95 transition-transform"
+                className="w-full py-4 bg-[#6F7F4F] text-amber-100 rounded-2xl font-black text-[15px] flex items-center justify-center gap-2 border-none cursor-pointer mt-3 active:scale-95 transition-transform"
               >
                 🍞 Enviar pedido
               </button>

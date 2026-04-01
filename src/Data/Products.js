@@ -1,13 +1,13 @@
 export const INITIAL_PRODUCTS = [
-  { id: 'g1', category: 'garullas',    name: 'Garulla Tradicional', desc: 'Maíz, queso campesino y mantequilla',        price: 1800,  image: '/images/garulla.png', badge: 'popular', available: true },
-  { id: 'g2', category: 'garullas',    name: 'Garulla Rellena',     desc: 'Rellena de queso doble crema derretido',     price: 2500,  image: '/images/garulla.png', badge: 'nuevo',   available: true },
-  { id: 'g3', category: 'garullas',    name: 'Garulla Grande',      desc: 'Tamaño familiar, perfecta para compartir',   price: 3200,  image: '/images/garulla.png', badge: null,      available: true },
-  { id: 'g4', category: 'garullas',    name: 'Garulla Mini x3',     desc: 'Pack de tres unidades pequeñas',             price: 3500,  image: '/images/garulla.png', badge: 'popular', available: true },
+  { id: 'g1', category: 'productos',    name: 'Garulla Tradicional', desc: 'Maíz, queso campesino y mantequilla',        price: 1800,  image: '/images/garulla.png', badge: 'popular', available: true },
+  { id: 'g2', category: 'productos',    name: 'Garulla Rellena',     desc: 'Rellena de queso doble crema derretido',     price: 2500,  image: '/images/garulla.png', badge: 'nuevo',   available: true },
+  { id: 'g3', category: 'productos',    name: 'Garulla Grande',      desc: 'Tamaño familiar, perfecta para compartir',   price: 3200,  image: '/images/garulla.png', badge: null,      available: true },
+  { id: 'g4', category: 'productos',    name: 'Garulla Mini x3',     desc: 'Pack de tres unidades pequeñas',             price: 3500,  image: '/images/garulla.png', badge: 'popular', available: true },
 
-  { id: 'a1', category: 'almojabanas', name: 'Almojábana Clásica',  desc: 'Suave, esponjosa y recién horneada',         price: 2000,  image: '/images/almohabana.png', badge: 'popular', available: true },
-  { id: 'a2', category: 'almojabanas', name: 'Almojábana XL',       desc: 'Extra grande, con más queso por dentro',     price: 2800,  image: '/images/almohabana.png', badge: null,      available: true },
-  { id: 'a3', category: 'almojabanas', name: 'Almojábana de Maíz',  desc: 'Versión especial con maíz dulce',            price: 2200,  image: '/images/almohabana.png', badge: 'nuevo',   available: true },
-  { id: 'a4', category: 'almojabanas', name: 'Almojábana x6',       desc: 'Media docena para llevar o compartir',       price: 10000, image: '/images/almohabana.png', badge: null,      available: true },
+  { id: 'a1', category: 'productos', name: 'Almojábana Clásica',  desc: 'Suave, esponjosa y recién horneada',         price: 2000,  image: '/images/almohabana.png', badge: 'popular', available: true },
+  { id: 'a2', category: 'productos', name: 'Almojábana XL',       desc: 'Extra grande, con más queso por dentro',     price: 2800,  image: '/images/almohabana.png', badge: null,      available: true },
+  { id: 'a3', category: 'productos', name: 'Almojábana de Maíz',  desc: 'Versión especial con maíz dulce',            price: 2200,  image: '/images/almohabana.png', badge: 'nuevo',   available: true },
+  { id: 'a4', category: 'productos', name: 'Almojábana x6',       desc: 'Media docena para llevar o compartir',       price: 10000, image: '/images/almohabana.png', badge: null,      available: true },
 
   { id: 'c1', category: 'combos',      name: 'Combo Desayuno',      desc: '2 garullas + 1 almojábana + tinto',          price: 6500,  image: '/images/empanada.png', badge: null,      available: true },
   { id: 'c2', category: 'combos',      name: 'Combo Familiar',      desc: '4 garullas + 4 almojábanas + 2 jugos',       price: 20000, image: '/images/empanada.png', badge: null,      available: true },
@@ -22,8 +22,7 @@ export const INITIAL_PRODUCTS = [
 ];
 
 export const CATEGORIES = [
-  { id: 'garullas',    label: 'Garullas' },
-  { id: 'almojabanas', label: 'Almojábanas' },
+  { id: 'productos', label: 'Productos' },
   { id: 'combos',      label: 'Combos' },
   { id: 'bebidas',     label: 'Bebidas' },
 ];

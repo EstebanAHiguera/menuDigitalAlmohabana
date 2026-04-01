@@ -1,8 +1,7 @@
 export const CATEGORY_LABELS = {
-  garullas: 'Garullas',
-  almojabanas: 'Almojábanas',
+  productos: 'Productos',
   combos: 'Combos',
   bebidas: 'Bebidas',
 };
 
-export const TABS = ['garullas', 'almojabanas', 'combos', 'bebidas'];
+export const TABS = ['productos', 'combos', 'bebidas'];

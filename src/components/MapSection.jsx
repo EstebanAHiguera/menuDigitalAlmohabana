@@ -5,8 +5,8 @@ export default function MapSection() {
   return (
     <div className="px-4 pt-16 pb-24">
       <div className="mb-4">
-        <h2 className=" w-full py-3 bg-[#1A1A1A]  rounded-xl font-bold text-white flex items-center justify-center gap-2 cursor-pointer border border-[#2A2A2A] mb-4 text-amber-900 text-3xl tracking-wide">Cómo llegar</h2>
-        <div className="w-10 h-1 bg-[#F5C800] rounded mt-1" />
+        <h2 className=" w-full py-3 bg-[#D4A373] rounded-xl font-bold  flex items-center justify-center gap-2 cursor-pointer border border-[#2A2A2A] mb-4 text-amber-100 text-3xl tracking-wide">Cómo llegar</h2>
+        <div className="w-full h-1 bg-[#D4A373] rounded mt-1" />
       </div>
 
       {/* Mapa simulado */}
@@ -41,7 +41,7 @@ export default function MapSection() {
       {/* Botón Google Maps */}
       <button
         onClick={openMaps}
-        className="w-full py-3.5 bg-[#F5C800] text-[#0D0D0D] rounded-xl font-black text-[15px] flex items-center justify-center gap-2 cursor-pointer border-none mb-2.5 active:scale-95 transition-transform"
+        className="w-full py-3.5 bg-[#D4A373] text-[#0D0D0D] rounded-xl  border border-[#2A2A2A]   font-black text-[15px] flex items-center justify-center gap-2 cursor-pointer border-none mb-2.5 active:scale-95 transition-transform"
       >
         <span className="text-lg">🗺️</span> Abrir en Google Maps
       </button>
@@ -49,7 +49,7 @@ export default function MapSection() {
       {/* Botón llamar */}
       <button
         onClick={callUs}
-        className="w-full py-3 bg-[#1A1A1A]  rounded-xl font-bold text-white flex items-center justify-center gap-2 cursor-pointer border border-[#2A2A2A] mb-4 active:scale-95 transition-transform"
+        className="w-full py-3 bg-[#D4A373]  rounded-xl font-bold text-[#2a2a2a] flex items-center justify-center gap-2 cursor-pointer border border-[#2A2A2A] mb-4 active:scale-95 transition-transform"
       >
         <span className="text-lg">📞</span> +57 310 000 0000
       </button>
@@ -61,10 +61,10 @@ export default function MapSection() {
           { icon: '📅', label: 'Días',       value: 'Lun – Sáb' },
           { icon: '🛵', label: 'Domicilios', value: 'Disponibles' },
         ].map(c => (
-          <div key={c.label} className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl p-3 text-center">
+          <div key={c.label} className="bg-[#D4A373] border border-[#2A2A2A] rounded-xl p-3 text-center">
             <span className="text-2xl">{c.icon}</span>
-            <p className="text-[10px] text-white/40 mt-1">{c.label}</p>
-            <p className="text-[12px] font-black text-white mt-0.5">{c.value}</p>
+            <p className="text-[12px] text-[#2A2A2A] mt-1">{c.label}</p>
+            <p className="text-[12px] font-black text-[#2A2A2A] mt-0.5">{c.value}</p>
           </div>
         ))}
       </div>
